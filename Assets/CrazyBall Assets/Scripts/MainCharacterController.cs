@@ -5,6 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class MainCharacterController : MonoBehaviour
 {
     public float MaxVelocity;
+    public GameObject Ball;
 
     private Rigidbody2D rigidbody2DComponent;
 
