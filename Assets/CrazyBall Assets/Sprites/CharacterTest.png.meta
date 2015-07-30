@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 38177a80ecd2b0a49b8360dc75a5f6b6
-timeCreated: 1438204759
+guid: 30bddf45723362a479d37e3624944488
+timeCreated: 1438294748
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CharacterTest_0
+    21300000: CharacterTest 1_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -28,7 +28,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -2
-  maxTextureSize: 128
+  maxTextureSize: 32
   textureSettings:
     filterMode: 0
     aniso: 16
@@ -50,13 +50,13 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: CharacterTest_0
+    - name: CharacterTest 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
