@@ -39,15 +39,16 @@ public class MainCharacterBallController : MonoBehaviour
                 Vector2 BallInitialPosition = coll.gameObject.GetComponent<MainCharacterController>().GetBallInitialPosition();
                 Vector2 ContactPoint = coll.contacts[0].point;
                 float PointDistance = ContactPoint.x - BallInitialPosition.x;
+                float AngleDeviation = (Mathf.Abs(PointDistance) * 45) / coll.gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
 
-                if (PointDistance > 0.5f)
+                if (PointDistance > 0f)
                 {
-                    float radAngle = 45f * Mathf.Deg2Rad;
+                    float radAngle = (90f - AngleDeviation) * Mathf.Deg2Rad;
                     ExitMovement = new Vector2(Mathf.Cos(radAngle), Mathf.Sin(radAngle));
                 }
-                else if (PointDistance < -0.5f)
+                else if (PointDistance < 0f)
                 {
-                    float radAngle = 135f * Mathf.Deg2Rad;
+                    float radAngle = (90f + AngleDeviation) * Mathf.Deg2Rad;
                     ExitMovement = new Vector2(Mathf.Cos(radAngle), Mathf.Sin(radAngle));
                 }
                 else
