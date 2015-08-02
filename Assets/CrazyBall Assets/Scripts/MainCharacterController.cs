@@ -5,6 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class MainCharacterController : MonoBehaviour
 {
     public float MaxVelocity;
+    public float JumpForce;
     public GameObject BallPrefab;
 
     private Rigidbody2D Rigidbody2DComponent;
@@ -33,6 +34,10 @@ public class MainCharacterController : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
     {
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        {
+            Rigidbody2DComponent.AddForce(new Vector2(0f, JumpForce));
+        }
 	}
 
     private void FixedUpdate()
