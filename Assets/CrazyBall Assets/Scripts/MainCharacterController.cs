@@ -28,7 +28,7 @@ public class MainCharacterController : MonoBehaviour
         SpriteComponent = GetComponent<SpriteRenderer>();
 
         Vector3 newPosition = new Vector3(transform.position.x, transform.position.y + SpriteComponent.bounds.size.y);
-        Ball = Instantiate(BallPrefab, newPosition, transform.rotation) as GameObject;
+//        Ball = Instantiate(BallPrefab, newPosition, transform.rotation) as GameObject;
 	}
 	
 	// Update is called once per frame
@@ -47,12 +47,12 @@ public class MainCharacterController : MonoBehaviour
         // Move the character
         Rigidbody2DComponent.velocity = new Vector2(h * MaxVelocity, Rigidbody2DComponent.velocity.y);
 
-        if (!BallLaunched && (h != 0.0f))
-        {
-            Ball.GetComponent<MainCharacterBallController>().LaunchBall();
-
-            BallLaunched = true;
-        }
+//        if (!BallLaunched && (h != 0.0f))
+//        {
+//            Ball.GetComponent<MainCharacterBallController>().LaunchBall();
+//
+//            BallLaunched = true;
+//        }
 
         // If the input is moving the player right and the player is facing left...
         if (h > 0 && !FacingRight)
@@ -74,8 +74,8 @@ public class MainCharacterController : MonoBehaviour
         FacingRight = !FacingRight;
 
         // Multiply the player's x local scale by -1.
-        //Vector3 theScale = transform.localScale;
-        //theScale.x *= -1;
-        //transform.localScale = theScale;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
