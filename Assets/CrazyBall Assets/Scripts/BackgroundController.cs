@@ -10,6 +10,9 @@ public class BackgroundController : MonoBehaviour
     public float BackgroundSpeed;
     public float BackgroundHeight;
 
+    [HideInInspector]
+    public Vector3 CurrentBackgroundVelocity;
+
     private List<GameObject> Backgrounds;
     private SpriteRenderer BackgroundSprite;
     private CameraController CameraControllerComponent;

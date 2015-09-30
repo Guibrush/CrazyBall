@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelArtRotation;
 
 public class MainCharacterBallController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MainCharacterBallController : MonoBehaviour
 
     private Vector2 PreviousVelocity;
     private bool BallLaunched;
+    private PixelRotation PixelRotationComponent;
 
     public void LaunchBall()
     {
@@ -21,12 +23,16 @@ public class MainCharacterBallController : MonoBehaviour
     {
         Rigidbody2DComponent = GetComponent<Rigidbody2D>();
         BallLaunched = false;
+
+        PixelRotationComponent = GetComponent<PixelRotation>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         PreviousVelocity = Rigidbody2DComponent.velocity;
+
+        PixelRotationComponent.Angle += (int)(Time.deltaTime * 100);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
