@@ -27,7 +27,7 @@ public class MainCharacterController : MonoBehaviour
         Rigidbody2DComponent = GetComponent<Rigidbody2D>();
         SpriteComponent = GetComponent<SpriteRenderer>();
 
-        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y + SpriteComponent.bounds.size.y);
+        Vector3 newPosition = GetBallInitialPosition();
         Ball = Instantiate(BallPrefab, newPosition, transform.rotation) as GameObject;
 	}
 	
