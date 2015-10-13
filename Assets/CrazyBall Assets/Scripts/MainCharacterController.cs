@@ -34,7 +34,7 @@ public class MainCharacterController : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && (Rigidbody2DComponent.velocity.y == 0))
         {
             Rigidbody2DComponent.AddForce(new Vector2(0f, JumpForce));
         }
