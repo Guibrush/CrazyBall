@@ -40,6 +40,8 @@ public class MainCharacterBallController : MonoBehaviour
         if (Rigidbody2DComponent && BallLaunched)
         {
             Vector2 ExitMovement = Vector2.zero;
+            Vector2 ExtraForce = Vector2.zero;
+            float FinalExitVelocity = 0.0f;
             if (coll.gameObject.name == "MainCharacter")
             {
                 Vector2 BallInitialPosition = coll.gameObject.GetComponent<MainCharacterController>().GetBallInitialPosition();
@@ -61,6 +63,10 @@ public class MainCharacterBallController : MonoBehaviour
                 {
                     ExitMovement = coll.contacts[0].normal;
                 }
+
+                ExtraForce.y = coll.gameObject.GetComponent<Rigidbody2D>().velocity.y > 0 ? (coll.gameObject.GetComponent<Rigidbody2D>().velocity.y * 0.05f) : 0;
+
+                FinalExitVelocity = InitialVelocity;
             }
             else
             {
@@ -68,9 +74,10 @@ public class MainCharacterBallController : MonoBehaviour
                 Vector2 MovementNormal = PreviousVelocity.normalized;
 
                 ExitMovement = Vector2.Reflect(MovementNormal, ContactNormal);
+                FinalExitVelocity = PreviousVelocity.magnitude * 0.75f;
             }
 
-            Rigidbody2DComponent.velocity = ExitMovement * InitialVelocity;
+            Rigidbody2DComponent.velocity = (ExitMovement + ExtraForce) * FinalExitVelocity;
         }
     }
 }
